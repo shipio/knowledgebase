@@ -1,0 +1,60 @@
+.header .navbar-default {
+    background-color: #323232;
+    color: #ccc;
+    margin-bottom: 0;
+    border-radius: 0;
+    border-color: inherit;
+}
+.header .logo img {
+    height: 30px;
+}
+
+.header .navbar-default .navbar-nav>li>a {
+    font-family: 'HelveticaNeue-Thin';
+    letter-spacing: 1px;
+    line-height: 20px;
+    font-size: 16px;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-left: 0;
+    padding-right: 1.2em;
+}
+.header .navbar-default .navbar-nav>li>a:hover {
+    color: #0fb8d5;
+    background-color: inherit;
+}
+.header nav .container-fluid {
+    padding-bottom: 2px;
+}
+.form-inline .form-control {
+    box-sizing: border-box;
+    font-size: 1.2em;
+    height: auto;
+    margin-right: 5px;
+    padding: 1em 0.8em;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    width: auto;
+}
+.form-inline .btn {
+    border-radius: 3px;
+    border: 1px solid #0FB8D5;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: all 0.15s linear;
+    padding: 0.4em 1em;
+    background: transparent;
+    color: #0FB8D5;
+    background: #fff;
+    vertical-align: middle;
+}
+.form-inline .btn:hover {
+    border-color:  #0fb8d5;
+    color: #ffffff;
+    background-color: #0FB8D5;
+}
+a {
+    color: #0fb8d5;
+    text-decoration: none;
+}
