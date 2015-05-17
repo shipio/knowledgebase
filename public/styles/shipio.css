@@ -31,7 +31,7 @@
     font-size: 1.2em;
     height: auto;
     margin-right: 5px;
-    padding: 1em 0.8em;
+    padding: 0.8em 0.8em;
     background-color: #ffffff;
     border: 1px solid #cccccc;
     width: auto;
@@ -57,4 +57,7 @@
 a {
     color: #0fb8d5;
     text-decoration: none;
+}
+.jumbotron {
+    background-color: #f5f5f5;
 }
