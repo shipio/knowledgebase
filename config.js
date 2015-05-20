@@ -1,5 +1,5 @@
 var config = {
-	site_title: 'Ship.io Docs',
+	site_title: 'Ship.io Documentation',
 	base_url: '',
 	support_email: 'support@ship.io',
 	copyright: 'Copyright &copy; ' + new Date().getFullYear() + ' Ship.io',

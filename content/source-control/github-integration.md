@@ -1,6 +1,6 @@
 /*
 Title: GitHub Integration
-Sort: 1
+Sort: 0
 */
 
 Ship.IO offers seamless integration with GitHub.
