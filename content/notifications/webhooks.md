@@ -6,8 +6,13 @@ It is often useful to integrate your build process with other services, includin
 ####Enabling Webhooks
 
 To enable webhooks for your job, start by editing your Job and clicking "Manage Notifications".
+
+![Manage Notifications](/images/notifications/manage-notifications.png)
+
 From the Notifications dialog, select the webhooks tab and enter the URL of the endpoint you would like to receive the POST.
 Webhook POST Format
+
+![Webhooks Modal](/images/notifications/webhooks/modal.png)
 
 Once a Webhook has been configured, Ship.io will send an HTTP POST to the specified URL whenever a build finishes. The body of the POST will contain JSON of the following format:
 
