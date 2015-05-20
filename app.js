@@ -34,7 +34,7 @@ extend(raneto.config, config);
 
 // Handle all requests
 app.all('*', function(req, res, next) {
-    if(req.query.search){
+    if(req.query.search) {
         var searchQuery = validator.toString(validator.escape(_s.stripTags(req.query.search))).trim(),
             searchResults = raneto.doSearch(searchQuery),
             pageListSearch = raneto.getPages('');
@@ -46,16 +46,16 @@ app.all('*', function(req, res, next) {
             searchResults: searchResults,
             body_class: 'page-search'
         });
-    }
-    else if(req.params[0]){
+    } else if(req.params[0]){
         var slug = req.params[0];
         if(slug == '/') slug = '/index';
 
         var pageList = raneto.getPages(slug),
             filePath = path.normalize(raneto.config.content_dir + slug);
+
         if(!fs.existsSync(filePath)) filePath += '.md';
 
-        if(slug == '/index' && !fs.existsSync(filePath)){
+        if(slug == '/index' && !fs.existsSync(filePath)) {
             return res.render('home', {
                 config: config,
                 pages: pageList,
@@ -69,15 +69,14 @@ app.all('*', function(req, res, next) {
                     return next(err);
                 }
 
-                // Process Markdown files
-                if(path.extname(filePath) == '.md'){
-                    // File info
+                if(path.extname(filePath) == '.md') {
                     var stat = fs.lstatSync(filePath);
-                    // Meta
+
                     var meta = raneto.processMeta(content);
                     content = raneto.stripMeta(content);
+
                     if(!meta.title) meta.title = raneto.slugToTitle(filePath);
-                    // Content
+
                     content = raneto.processVars(content);
                     var html = marked(content);
 
@@ -90,7 +89,6 @@ app.all('*', function(req, res, next) {
                         last_modified: moment(stat.mtime).format('Do MMM YYYY')
                     });
                 } else {
-                    // Serve static file
                     res.sendfile(filePath);
                 }
             });
@@ -100,7 +98,6 @@ app.all('*', function(req, res, next) {
     }
 });
 
-// Handle any errors
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
