@@ -7,7 +7,7 @@ We strongly recommend using [CocoaPods](http://cocoapods.org) for managing your 
 
 To compile applications that use CocoaPods for dependency management you must use an Xcode Workspace. To learn more about using Xcode Workspaces withship.ioo, and see an example using CocoaPods, check out the Build an iOS Workspace article.
 
-Ship.io supports all versions of CocoaPods down to 0.33.0. By default, we will install pods assuming that you're using the latest version. To use an older version, specify the CocoaPods version in your Podfile.lock.
+Ship.io will use the version of CocoaPods specified in your `Podfile.lock`. We support a number of CoocaPods versions. To see the full list of CocoaPods versions that we have installed, see the [Build Environment](%base_url%/environment/build-environment#cocoapods) documentation.
  
 We support CocoaPods server side. You do not need to check in your Pods directory. Simply check in the Podfile and we can take it from there. To enable CocoaPods installation, create a build step or edit an existing build step, go to the Build Settings tab, and check the Podfile that you'd like to install.
  

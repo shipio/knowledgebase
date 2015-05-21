@@ -4,7 +4,7 @@ Sort: 1
 
 [Bitbucket](https://bitbucket.org) is another popular hosting provider for Git source code repositories, which Ship.io fully supports through the use of SSH Keys. Follow these steps to connect your Bitbucket repository to Ship.io.
 
-1. First, let's start by generating a new SSH Key. Start by selecting "SSH Keys" from the drop down menu, and clicking "Generate Key Pair". This will generate a new public/private key pair that you can use as your SSH Key. However, if you prefer to add an existing key-pair you can select "Add My Own Key".
+1. Let's start by generating a new SSH Key. Start by selecting "SSH Keys" from the drop down menu, and clicking "Generate Key Pair". This will generate a new public/private key pair that you can use as your SSH Key. However, if you prefer to add an existing key-pair you can select "Add My Own Key".
 2. Give your SSH Key a name and select "Save". This will generate a new key-pair and add it to your list of available SSH Keys.
 3. The next step is to grant this SSH Key access to pull your Bitbucket repository. On Bitbucket, navigate to your repository and click the Settings icon. From there, select "Deployment Keys" in the main pane. On this page you'll see a list of any Deployment keys you have already configured with access to this repository (if any).
 4. Now, click the "Add key" button and copy the Public Key from Ship.io and paste it into the Key field on Bitbucket.

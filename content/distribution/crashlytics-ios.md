@@ -3,9 +3,9 @@ Title: Using Crashlytics Beta with iOS
 Sort: 0
 */
 
-The Crashlytics team has made it very easy to configure your iOS build to include the Crashlytics library.
+The [Crashlytics](https://try.crashlytics.com/) team has made it very easy to configure your iOS build to include the Crashlytics library.
 
-This article assumes you already have an existing iOS Job set up in Ship.io that you want to add Crashlytics Beta support to.
+This article assumes you already have an existing iOS Job set up in Ship.io that you want to add [Crashlytics Beta](http://try.crashlytics.com/beta/) support to.
 
 First you'll need to get an account with [Fabric](https://get.fabric.io/) and follow their instructions for getting started.
 
@@ -26,7 +26,7 @@ You'll also need to locate your Crashlytics framework. This typically is at the 
 
 ####Finding your API key and build secret
 
-You will also need your Crashlytics API key and build secret. You can find those by going to [Crashlytics](https://www.crashlytics.com/settings/organizations), selecting your organization, and clicking the "API Key" and "Build Secret" links under the organization name.
+You will also need your Crashlytics API key and build secret. You can find those by going to the Crashlytics [organizations page](https://www.crashlytics.com/settings/organizations), selecting your organization, and clicking the "API Key" and "Build Secret" links under the organization name.
 
 ####Deploying Release Notes
 
@@ -59,4 +59,4 @@ fi
 
 This script will find the IPA name and the location of the Crashlytics plugin. If those statements don't find the correct locations, you can set them manually. Be sure to leave quotes around the usage of `$IPA_NAME` and `$CRASHLYTICS` since the locations may have spaces in them. 
 
-Plug in your api-key, build-secret, comma-separated-emails and you should be set.
+Plug in your API key, build secret, and comma separated list of emails. You should be set!

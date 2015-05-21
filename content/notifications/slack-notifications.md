@@ -1,7 +1,7 @@
 /*
 Sort: 3
 */
-Slack is a very popular platform tool for team communication.  We have an integration that will allow you to receive build notifications via a specific Slack channel! Oh yeah, real time notifications via Slack is here.
+[Slack](https://slack.com) is a very popular platform tool for team communication.  We have an integration that will allow you to receive build notifications via a specific Slack channel!
 
 ####Enabling Slack
 

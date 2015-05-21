@@ -2,10 +2,12 @@
 Sort: 0
 */
 
+<a name="base"></a>
 ###Base Environment
 
 Our base build image runs Mac OS X 10.10.3 Yosemite. All builds take place as the `administrator` user, which has full administrator access. Builds on Ship.io are transactional, which means that the system is completely rolled back to a clean state after every single build. You are free to make any changes to the build system that are necessary for your app to build, test, and deploy. If you require additional configuration of your build environment, please let us know ([send us an email](mailto:support@ship.io)), and we'll do our best to help you out.
 
+<a name="software"></a>
 Here are the specifications for the relevant software that we have installed.
 
 - **Mac OS X version** `10.10.3 Yosemite`, build `14D136`.
@@ -13,6 +15,7 @@ Here are the specifications for the relevant software that we have installed.
 - **Java build** `1.8.0_45`
 - **Ruby version** `2.0.0-p481`
 
+<a name="shells"></a>
 Ship.io allows you to execute shell scripts. Here are the shells that we support:
 
 - **GNU** bash version `3.2.57`
@@ -24,6 +27,7 @@ Ship.io allows you to execute shell scripts. Here are the shells that we support
 - **Python** version `2.7.6`
 - **Perl** version `v5.18.2`
 
+<a name="ios"></a>
 ###iOS
 
 ####Xcode
@@ -38,10 +42,12 @@ Here is the exact xctool command that we run:
 xctool -scheme scheme-name -sdk (iphoneos/iphonesimulator) -workspace workspace-path clean (build/build-tests) CONFIGURATION_BUILD_DIR="artifacts-directory" OBJROOT="artifacts-directory" SYMROOT="artifacts-directory" DSTROOT="artifacts-directory" CODE_SIGN_IDENTITY="certificate-name"
 ```
 
+<a name="cocoapods"></a>
 ####CocoaPods
 
 We have the following versions of CocoaPods installed: `0.37.0.beta.1`, `0.37.0.rc.1`, `0.37.0.rc.2`, `0.37.0`, `0.37.1`, `0.36.4`, `0.36.3`, `0.36.2`, `0.36.1`, `0.36.0.rc.1`, `0.36.0.beta.2`, `0.36.0.beta.1`, `0.36.0`, `0.35.0.rc2`, `0.35.0.rc1`, `0.35.0`, `0.34.4`, `0.34.2`, `0.34.1`, `0.34.0.rc2`, `0.34.0.rc1`, `0.34.0`, `0.33.1`, `0.33.0`, `0.32.1`, `0.32.0`, `0.31.1`, `0.31.0`, `0.30.0`, `0.29.0`, `0.28.0`, `0.27.1`, `0.27.0`
 
+<a name="variables"></a>
 ###Environment Variables
 
 Ship.io sets a number of environment variables on our build environment. You can use our command line tool, shiptool, to set your own variables that will persist across build steps.

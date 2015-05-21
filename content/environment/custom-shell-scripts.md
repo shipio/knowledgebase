@@ -7,7 +7,7 @@ Ship.io has support for a number of build and test frameworks, but there may be 
  
 First, create a new Run Shell Script build step.
 
-Next, write your script in the text area, and click OK. You are also able to select the shell that you would like your script to run in. Ship.io supports `bash`, `ksh`, `tcsh`, `zsh`, `tclsh`, `ruby`, `python`, and `perl`.
+Next, write your script in the text area, and click OK. You are also able to select the shell that you would like your script to run in. Ship.io supports a number of shells. To get the full list of shells that Ship.io supports, see our [Build Environment](%base_url%/environment/build-environment#shells) documentation.
 
 Your custom script build step will execute in order, so any changes you make to the builder will persist until your build has completed. Keep in mind that environment variables that you set will *not* persist.
 

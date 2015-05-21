@@ -3,7 +3,7 @@ Title: Using HockeyApp
 Sort: 2
 */
 
-HockeyApp is a popular tool that helps developers distribute new versions of their iOS and Android applications to beta testers. Ship.io is tightly integrated with HockeyApp, making distribution even easier by automating the build process, code signing, and uploading of applications.
+[HockeyApp](http://hockeyapp.net/) is a popular tool that helps developers distribute new versions of their iOS and Android applications to beta testers. Ship.io is tightly integrated with HockeyApp, making distribution even easier by automating the build process, code signing, and uploading of applications.
 
 ####Connecting the HockeyApp Add-On
 

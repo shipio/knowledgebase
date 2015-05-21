@@ -26,8 +26,9 @@ For more information see our [privacy policy](https://app.ship.io/privacy) and [
 
 Similar to Apple's system, which uses Provisioning Profiles, Android requires that all application files (APK's) be signed with a keystore before they can be installed on a device. Keystore's come in two flavors:
 
-Debug Keystores: These keystores are used only for development. APK's signed with a Debug Keystore cannot be uploaded to Google Play and require that end users who install the application turn on the "Unknown Sources" setting [(see how)](http://www.youtube.com/watch?v=p8rnyuCsrTg).
-Release Keystores: These keystores are used to sign the production version of your application so that it can be uploaded and distributed on Google Play.
+- **Debug Keystores**: These keystores are used only for development. APK's signed with a Debug Keystore cannot be uploaded to Google Play and require that end users who install the application turn on the "Unknown Sources" setting [(see how)](http://www.youtube.com/watch?v=p8rnyuCsrTg).
+- **Release Keystores**: These keystores are used to sign the production version of your application so that it can be uploaded and distributed on Google Play.
+
 You can upload either keystore-type to Ship.io from the Code Signing page and choose the keystore when creating your build step. However, you can also choose to have Ship.io generate a debug keystore when creating your build step for simplicity (if you don't intend on publishing the generated app to the Google Play). Go to the [Android build step help page](http://support.ship.io/hc/en-us/articles/202290039-Using-Gradle-to-Build-an-Android-Project) for more details.
 
 The important points to understand about signing Android applications are:
@@ -37,51 +38,30 @@ To test and debug your application, the build tools sign your application with a
 You can use self-signed certificates to sign your applications. No certificate authority is needed.
 The system tests a signer certificate’s expiration date only at install time. If an application’s signer certificate expires after the application is installed, the application will continue to function normally.
 You can use standard tools – Keytool and Jarsigner – to generate keys and sign your application .apk files.
-After you sign your application for release, we recommend that you use the zipalign tool to optimize the final APK package.
+After you sign your application for release, we recommend that you use the `zipalign` tool to optimize the final APK package.
 
 ####How do I make sure my project will build using Ship.io?
 
 Setting up a build environment can be a time consuming and tricky process. Here at Ship.io, we abstract this complexity away so that developers don't have to worry about those details. That means that our build environments have been designed to support the widest range of mobile application configurations while also ensuring all of our users' data is handled securely. Achieving these goals means that some things which are possible in a dedicated server environment are not supported on Ship.io. Here is a short list of recommendations that will help your team get the most value out of Ship.io:
 
-Git Submodules: Ship.io has no problem pulling git submodules. However, it's important that our system have access to pull them at build time. While we can automatically configure access to your git repository you may need to manually configure access to any private submodules that your project uses.
-3rd Party Frameworks/Libraries: It's important to include any 3rd party libraries or frameworks in your source code repository so that they are accessible during the build process. For Open Source frameworks this can usually be accomplished with the use of Git Submodule's.
+- **Git Submodules**: Ship.io has no problem pulling git submodules. However, it's important that our system have access to pull them at build time. While we can automatically configure access to your git repository you may need to manually configure access to any private submodules that your project uses.
+- **3rd Party Frameworks/Libraries**: It's important to include any 3rd party libraries or frameworks in your source code repository so that they are accessible during the build process. For Open Source frameworks this can usually be accomplished with the use of Git Submodule's.
 Unsupported Test Frameworks: Please see the above list of supported Unit Test frameworks. Test projects developed using other frameworks will not run correctly on Ship.io.
-Shell Scripts: When creating your job configuration, you can choose steps such as building the application, running tests, or even custom shell scripts.
-iOS SDK Version: When creating an iOS job, be sure to select the correct SDK version. Some projects require that they be built again the device SDK. When creating or editing your job look for the option titled iOS SDK to modify this setting.
+- **Shell Scripts**: When creating your job configuration, you can choose steps such as building the application, running tests, or even custom shell scripts.
+- **iOS SDK Version**: When creating an iOS job, select the correct SDK version. Some projects require that they be built again the device SDK. When creating or editing your job look for the option titled iOS SDK to modify this setting.
+
 If these limitations are a deal breaker for your organization please [contact us](mailto:team@ship.io) to discuss a dedicated server plan.
 
 ####How are builds triggered?
 
-After creating a job, the job can be triggered to create a build in three ways.  1) manually by clicking start build in our web app  2) through commit hooks if selected this way (so every time a developer commits a new change it will automatically trigger) or by 3) through polling git or bitbucket if selected this way (so at a certain time interval Ship.io will check to see if there are changes in the repository, if there is then we will create a new build)
+After creating a job, the job can be triggered to create a build in three ways.
+
+- **Manually**: Clicking "Start Build" in Ship.io
+- [**Commit Hooks**](%base_url%/source-control/automatically-triggered-builds#commit-hooks): We receive a POST notification from your git hosting service.
+- [**Polling**](%base_url%/source-control/automatically-triggered-builds#polling): Ship.io will poll your repository every 10 minutes, and will trigger a build if changes are detected.
 
 Setting up your Job with a schedule of Commit hooks is often the preferred method of triggering a build.
 
 ####How do I integrate Ship.io with my own backend or web service?
 
-We support integration with 3rd party systems by sending Notification Callbacks whenever a build completes. These callbacks are sent as an HTTP POST to a url that you select and contain information about the status of the build, the associated job, repository and links to download build artifacts. When creating or editing a job just specify the url of your service under Notifications.
-
-```json
-{
- "build":{
-   "id":"68m7e9ag4",
-   "build_number":1,
-   "commit_sha":"ec458234eaa46662b1c43d572188a7be1d2cb203",
-   "state":"succeeded",
-   "successful":true
- },
- "job":{
-   "id":"4fdaqe5xtid5oxnyq",
-   "name":"my_ios_app",
-   "repository":{
-     "name":"my_ios_app",
-     "selected_branch":"master",
-     "html_url":"https://github.com/mygithubuser/my_ios_app",
-     "clone_url":"https://github.com/mygithubuser/my_ios_app"
-   }
- }
-}
-```
-        
-####Contact Us
-
-If you have a specific question or would like us to add something to this FAQ please [contact us](team@ship.io).
+We support integration with 3rd party systems by sending Notification webhooks whenever a build completes. These hooks are sent as an HTTP POST request to a URL that you specify and contain information about the status of the build, the associated job, repository and links to download build artifacts. To learn more about setting up webhooks, see the [Webhooks](%base_url%/notifications/webhooks) documentation.

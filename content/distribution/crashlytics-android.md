@@ -3,7 +3,7 @@ Title: Using Crashlytics Beta with Android
 Sort: 1
 */
 
-The Crashlytics team has made it very easy to configure your Gradle build to link in the Crashlytics library. First get an account with [Fabric](https://get.fabric.io/) and follow their instructions to get generally setup.
+The [Crashlytics](https://try.crashlytics.org) team has made it very easy to configure your Gradle build to link in the Crashlytics library. First get an account with [Fabric](https://get.fabric.io/) and follow their instructions to get generally setup.
 
 Once that's complete, you can define the list of testers to notify when a candidate app is uploaded to Crashlytics by adding the `ext.betaDistributionEmails` property to your app's `build.gradle` for your build type or flavor, like this:
 
